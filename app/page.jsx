@@ -15,7 +15,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen p-6 bg-gray-100">
-      <header className="text-2xl font-semibold mb-6">👋 Welcome back, Aman!</header>
+      <header className="text-2xl text-black font-semibold mb-6">👋 Welcome back, Aman!</header>
 
       <section className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
         {users.map(user => (
