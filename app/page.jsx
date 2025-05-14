@@ -1,9 +1,11 @@
 'use client';
 import { useEffect, useState } from 'react';
 import AvatarCard from './components/AvatarCard';
+import CreateAvatarModal from './components/CreateAvatarModal';
 
 export default function Home() {
   const [users, setUsers] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     fetch('/api/avatars')
@@ -20,6 +22,15 @@ export default function Home() {
           <AvatarCard key={user.id} user={user} />
         ))}
       </section>
+
+      <button
+        onClick={() => setIsModalOpen(true)}
+        className="fixed bottom-6 right-6 bg-blue-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-blue-700 transition-transform duration-200 hover:scale-105"
+      >
+        + Create New Avatar
+      </button>
+
+      {isModalOpen && <CreateAvatarModal onClose={() => setIsModalOpen(false)} />}
     </main>
   );
 }
